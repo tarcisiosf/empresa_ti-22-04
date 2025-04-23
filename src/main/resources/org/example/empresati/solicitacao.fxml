@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.empresati.controller.SolicitacaoController"
+            prefWidth="600" prefHeight="400">
+
+    <top>
+        <VBox spacing="8">
+            <!-- padding via Insets -->
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <GridPane hgap="8" vgap="8">
+                <Label text="Nome:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="tfNome" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Equipamento:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="tfEquipamento" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Data:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="dpData" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Button text="Solicitar" onAction="#onSolicitar"
+                        GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <HBox spacing="8">
+                <Label text="Filtrar por Nome:"/>
+                <TextField fx:id="tfFilterNome" promptText="digite nome..."/>
+                <Label text="Filtrar por Equipamento:"/>
+                <TextField fx:id="tfFilterEquipamento" promptText="digite equipamento..."/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tvSolicitacoes" prefHeight="200" prefWidth="580">
+            <columns>
+                <TableColumn fx:id="colId"    text="ID"          prefWidth="50"/>
+                <TableColumn fx:id="colNome"  text="Colaborador" prefWidth="200"/>
+                <TableColumn fx:id="colEquip" text="Equipamento" prefWidth="200"/>
+                <TableColumn fx:id="colData"  text="Data"        prefWidth="130"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
